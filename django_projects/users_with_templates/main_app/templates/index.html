@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Users with Templates</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <div class="allusers">
+    <h1>All the Users</h1>
+    <table class="table">
+        <thread>
+            <tr>
+                <td class="table-success">First Name</td>
+                <td class="table-danger">Last Name</td>
+                <td class="table-warning">Email</td>
+                <td class="table-info">Age</td>
+            </tr>
+        </thread>
+        <tbody>
+        {% for user in main_app %} 
+        <tr>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.age}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <div class="adduser">
+        <h1>Add a User</h1>
+    <form action="/add_user" method="POST">
+        {% csrf_token %}
+        <label for="first_name">First Name</label>
+        <input name="first_name" type="text">
+      
+        <label for="last_name">Last Name</label>
+        <input name="last_name" type="text">
+        <br>
+        <label for="email">Email</label>
+        <input name="email" type="text">
+      
+        <label for="age">Age</label>
+        <input name="age" type="number">
+        <br>
+        <button type="submit">Add</button>
+    </form>
+    </div>
+</body>
+</html>

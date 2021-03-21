@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Show</title>
+</head>
+<body>
+    <form action="/shows" method="POST">
+        {% csrf_token %}
+    <table class="table">
+        <thead>            
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>Title</td>
+                    <td>Network</td>
+                    <td>Release Date</td>
+                    <td>Action</td>
+                </tr>
+            </tbody>
+                
+                {% for show in main_app %}
+                <tr>
+                    <td>Title: {{show.id}}</td>
+                    <td>NetWork:{{show.title}}</td>
+                    <td>Release Date: {{show.network}}</td>
+                    <td>Descriptions: {{show.desc}}</td>
+                </tr>
+                {% endfor %}
+</body>
+</html>

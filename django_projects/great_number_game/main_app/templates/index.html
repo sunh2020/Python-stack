@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <h1>Welcome to the Great Numbr Game!</h1>
+    <h2>I am thinking of a number between 1 and 100</h2>
+    <h2>Take a guess!</h2>
+    <form action="/result", method="POST">
+        {% csrf_token %}
+        <p>
+        <input type="number" name="number" id="">
+        </p>
+        <p>
+        <button type="submit" name="form">Submit</button>
+        </p>
+    </form>
+    {% if request.session.message == "low" %}
+        <p class="low">Too low</p>
+    {% elif request.session.message == "high" %}
+        <p class="high">Too high</p>
+    {% elif request.session.message == "correct" %}
+        <p class="correct">Correct</p>
+        <p>
+        <a href ="/reset">Play again</a>
+        </p>
+    {% endif %}      
+</body>
+</html>

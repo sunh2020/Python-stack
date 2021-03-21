@@ -1,0 +1,12 @@
+h1 {
+   text-align: center;
+}
+
+.registration {
+    display: inline-block;
+}
+
+.login {
+    display: inline-block;
+}
+

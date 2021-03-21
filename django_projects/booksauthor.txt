@@ -1,0 +1,31 @@
+from django.db import models
+
+# Create your models here.
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    desc = models.CharField(max_length=255)
+    # authors = LIST OF ALL THE AUTHORS THAT WRITTEN BOOKS 
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Author(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    
+        
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+ notes = models.CharField(max_length=255)
+
+
+
+
+
+Create appropriate tables/models that allows you to perform tasks such as
+Dojo.objects.first().ninjas.all()
+Ninja.objects.first().dojo
+Using Django Shell:
+Create 3 dojos
+Delete the three dojos you created (e.g. Dojo.objects.get(id=1).delete())

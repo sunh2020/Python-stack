@@ -1,0 +1,5 @@
+Show.objects.create(title="Stranger Things", network="Netflix", release="July 15, 2016")
+Show.objects.create(title="Brooklyn Nine-Nine", network="NBC", release="September 17, 2013")
+Show.objects.create(title="Game of Thrones", network="HBO", release="April 17, 2011")
+Show.objects.create(title="Pushing Daisies", network="ABC", release="October 3, 2007")
+Show.objects.create(title="Parks and Recreation", network="NBC", release="April 9,")

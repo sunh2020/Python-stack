@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+}
+
+.desc {
+    height: 100px;
+}
+
+.notes {
+    height: 100px;
+}
+

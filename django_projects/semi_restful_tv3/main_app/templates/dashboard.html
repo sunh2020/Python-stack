@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>TV Show</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1> 
+            <p>
+            <a href="/">Go Back</a>
+        </p>
+        <form action="/shows/create" method="POST">
+            {% csrf_token %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Title</td>
+                        <td>Network</td>
+                        <td>Release Date</td>
+                        <td>Action</td>
+                    </tr>            
+                    <tbody>
+                        {% for show in main_app %}
+                        <tr>
+                            <td>{{show.id}}</td> 
+                            <td>{{show.title}}</td>
+                            <td>{{show.network}}</td>
+                            <td>{{show.release_date}}</td>
+                            <td>
+                                <a href="/shows/{{show.id}}">Show</a>
+                                <a href="/shows/{{show.id}}/edit">Edit</a> 
+                                <a href="/shows/{{show.id}}/delete">Delete</a>
+                                
+                            </td>    
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </thead>
+            </table>
+        </form>
+            <p>
+                <a href="/">Add a New Show</a>
+            </p>    
+    </div>    
+                   
+</body>
+</html>

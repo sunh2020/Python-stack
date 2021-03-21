@@ -1,0 +1,61 @@
+for comments set up 
+
+views.py
+
+user_comments = User.comments.all()
+context = {
+        "user_comments" : user_comments
+}
+{% for comment in user_comments %}
+        print(comment)
+{% endfor %}
+
+
+
+for loops 
+{% for comment in User.comments.all %}
+        print(comment)
+{% endfor %}
+
+Python exam code 74116084
+
+
+{% if user.is_active %}
+   # 로그인 사용자가 볼 수 있는 내용
+{% else %}
+   # 로그인 하지 않아도 볼 수 있는 내용
+{% endif %}
+[출처] 파이썬 장고 템플릿에서 로그인 사용자만 볼 수 있도록 하는 방법|작성자 잡동사니
+
+
+
+
+{% if user.is_authenticated %}
+    <a href="/user/{{ user.username }}/">{{ user.username }}</a>,hello.
+        (<a href="/edit">Edit</a>| <a href="/delete">Delete</a>|<a href="/logout/">Logout</a>)
+{% else %}
+    <a href="/login/">Login</a> |
+    <a href="/register/">Register</a>
+{% endif %}
+
+
+
+class Trip(models.Model):
+creators = models.ManyToManyField(User, related_name="makers")
+
+def updateTrip(request, trip_id):
+    errors = Trip.objects.validate_trip(request.POST)
+    if errors:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect(f"/trips/{trip_id}/edit")
+    update_trip = Trip.objects.get(id = trip_id)
+    # Step 2. Change the information
+    update_trip.dest=request.POST['dest']
+    update_trip.start_date=request.POST['start_date'] 
+    update_trip.end_date=request.POST['end_date'] 
+    update_trip.plan=request.POST['plan'] 
+    # Step 3. Save the updated show
+    update_trip.save()
+    return redirect(f"/trips/{trip_id}")     
+

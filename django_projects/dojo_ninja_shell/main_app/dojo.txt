@@ -1,0 +1,68 @@
+py manage.py makemigrations
+> - Create model Dojo
+    - Create model Ninja
+
+from main_app.models import *
+Dojo.objects.create(name="D", city="Los Angeles", state="CA")
+Dojo.objects.create(name="S", city="San Jose", state="CA")
+Dojo.objects.create(name="C", city="Seattle", state="WA")
+
+u = Dojo.objects.get(id=3)
+u.delete()
+u = Dojo.objects.get(id=2)
+u.delete() 
+u = Dojo.objects.get(id=1)
+u.delete() 
+Dojo.objects.all()
+
+
+from main_app.models import *
+Dojo.objects.create(name="A", city="Seattle", state="WA")
+Dojo.objects.create(name="B", city="Miami", state="FL")
+Dojo.objects.create(name="C", city="Los Angeles", state="CA")
+Dojo.objects.all()
+
+dojo1=Dojo.objects.get(id=4)
+dojo2=Dojo.objects.get(id=5)
+dojo3=Dojo.objects.get(id=6)
+
+Ninja.objects.create(first_name="Lala", last_name="Charm", creator=dojo1)
+Ninja.objects.create(first_name="Rey", last_name="Smith", creator=dojo1)
+Ninja.objects.create(first_name="Sam", last_name="White", creator=dojo1)
+
+Ninja.objects.create(first_name="Kevin", last_name="Hart", creator=dojo2)
+Ninja.objects.create(first_name="John", last_name="Heart", creator=dojo2)
+Ninja.objects.create(first_name="Maria", last_name="Johns", creator=dojo2)
+
+
+Ninja.objects.create(first_name="Ray", last_name="Black", creator=dojo3)
+Ninja.objects.create(first_name="Joy", last_name="Smith", creator=dojo3)
+Ninja.objects.create(first_name="Martha", last_name="Johnson", creator=dojo3)
+
+
+Question: Retrieve all the ninjas from the first dojo
+Ninja.objects.filter(creator=dojo1)
+>>><QuerySet [<Ninja: Ninja object (1)>, <Ninja: Ninja object (2)>, <Ninja: Ninja object (3)>]>
+
+Question: Retrieve all the ninjas from the last dojo
+Ninja.objects.filter(creator=dojo3)
+>>><QuerySet [<Ninja: Ninja object (7)>, <Ninja: Ninja object (8)>, <Ninja: Ninja object (9)>]
+
+Question: Retrieve the last ninja's dojo
+Ninja.objects.filter().last()
+>>><Ninja: Ninja object (9)>
+
+exit()
+
+Questions: Add a new text field called "desc" to your Dojo class
+py manage.py makemigrations
+Select an option: 1
+Type 'exit' to exit this prompt
+>>> "old dojo"
+Migrations for 'main_app':
+  main_app\migrations\0002_dojo_desc.py
+    - Add field desc to dojo
+
+Question: Create a new dojo
+Dojo.objects.create(name="Z", city="Burbank", state="CA")
+>>><Dojo: Dojo object (7)>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    <!-- <script type="text/javascript" src="{{ url_for('static',filename='js/check.js')}}">
+    </script> --> 
+</head>
+<body>
+    <h1>Checkerboard</h1>
+    
+    <table>
+        <tbody>
+        {% for row in range(x) %}
+        <tr>
+            {% for colume in range(y) %}
+            <td class="color{{ (row + colume)%2+1 }}"></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</body>
+</html>

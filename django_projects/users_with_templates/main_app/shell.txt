@@ -1,0 +1,3 @@
+Users.objects.create(first_name="Eleanor", last_name="Shellstrop", email="eleanor@shellstrop.com", age=30)
+Users.objects.create(first_name="Chidi", last_name="Anagonye", email="chidi@anagonye.com", age=32)
+Users.objects.create(first_name="Jason", last_name="Mendoza", email="jason@mendoza.com", age=24)

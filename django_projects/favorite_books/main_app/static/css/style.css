@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    width: 300px;
+
+ 
+}
+
+h2 {
+    text-align: center;
+    width: 300px;
+    display: inline-block;
+}
+
+
+form {
+    display:inline-block;
+}

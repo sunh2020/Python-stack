@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survery Result</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <h1>Submitted infor</h1>
+    <h2>Your Name: {{context_name}}</h2>
+    <h2>Dojo Location: {{context_location}}</h2>
+    <h2>Favorite Language: {{context_language}}</h2>
+    <h3>Comment: {{context_option}}</h3>
+    <p>
+        <center><a href="/reset" >Clear my info</a></center>
+    </p>
+    
+</body>
+</html>

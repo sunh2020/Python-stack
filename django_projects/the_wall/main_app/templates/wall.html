@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/">Log Out</a>
+      
+            <h1>Post a message</h1>
+            <form action="/wall" method="POST">
+                {% csrf_token %}
+                <p>
+                    Description:
+                    <textarea name="description" id="" cols="50 rows="40></textarea>
+                </p>
+                <p>
+                    <button type="submit">Post a message</button>
+                </p>
+                <table class="table">
+                    <thead>
+                         <tbody>
+                               
+                                <ul>
+                            <li>{% for user in main_app %}
+                                </li>
+                                    {{user.fname}} {{user.updated_at}}
+                                {% endfor %}
+                                </li>
+
+                                 <li>{% for message in user.uers.all %}
+                                  </li>        
+                                        <p>{{comment.comment}}</p>
+                                      {% endfor %}
+                                    <p>{{user.fname}} {{user.updated_at}}</p>
+                                </ul>
+                                    
+                                        <form action="/wall" method="POST">
+                                            
+                                            <p>
+                                                Post a comment:
+                                                <textarea name="description" id="" cols="50 rows="40></textarea>
+                                            </p>
+                                            <p>
+                                                <button type="submit">Post a comment</button>
+                                            </p> 
+                                                <!-- <p>{{user.fname}} {{user.updated_at}}</p>
+                                           
+                                                <p>
+                                                {% if request.session.user_id == message.creator.id %}
+                                                    <p><a href="">Edit</a> | <a href="">Delete</a></p>
+                                                {% else %}
+
+                                                {% endif %}
+                                                    
+                                                {% endfor %}    
+                                            </p> -->
+                                                 
+                        </tbody>
+                    </thead>
+                </table>
+        </div> 
+     </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+<body>
+    <h1>Welcome {{user.first_name}}</h1>
+    <h1>Add a Favorite Book</h1>
+    <form action="/book_details" method="POST">
+        {% csrf_token %}
+        <p>
+            Title: 
+            <input type="text" name="title" id="">
+        </p>
+        <p>
+            Description:
+            <textarea name="description" id="" col="30" rows="10"></textarea>
+        </p>
+        <button type="submit">Update</button>
+        </form>
+
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}
+         <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    
+    {% endif %}
+                
+            <h2>All Books</h2>
+        </p>
+        {% for book in all_books %}
+            <li>Added by: {{book.title.uploaded_by}}</li>
+            <li>Added on: {{created_at}}</li>
+            <li>Last updated on: {{updated_at}}</li>
+            Description:
+        {% endfor %}   
+
+
+
+
+</body>
+</html>

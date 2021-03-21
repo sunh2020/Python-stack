@@ -1,0 +1,77 @@
+>>> from main_app.models import *
+>>> User.objects.create(first_name = "John", last_name = "Smith", email_address = "john@gmail.com", age = 30)
+<User: User object (1)>
+>>> User.objects.create(first_name = "Sam", last_name = "White", email_address = "sam@gmail.com", age = 27)
+<User: User object (2)>
+>>> User.objects.create(first_name = "Suzie", last_name = "West", email_address = "sz@gmail.com", age = 32)
+<User: User object (3)>
+>>> User.objects.all()
+<QuerySet [<User: User object (1)>, <User: User object (2)>, <User: User object (3)>]>
+>>> User.object.last()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'User' has no attribute 'object'
+>>> User.objects.get(id=3)
+<User: User object (3)>
+>>> User.objects.last()
+<User: User object (3)>
+>>> User.objects.first()
+<User: User object (1)>
+>>> edit_user = User.objects.get(id=3)
+>>> edit_last_name
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'edit_last_name' is not defined
+>>> edit_last_name = "Pancakes"
+>>> User.objects.get(id=3)
+<User: User object (3)>
+>>> User.objects.all().value()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'value'
+>>> edit_user__dict__
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'edit_user__dict__' is not defined
+>>> User.objects.get(id=3).__dict__
+{'_state': <django.db.models.base.ModelState object at 0x000001D2AABA5EB0>, 'id': 3, 'first_name': 'Suzie', 'last_name': 'West', 'email_address': 'sz@gmail.com', 'age': 32, 'created_at': datetime.datetime(2021, 1, 15, 0, 47, 15, 302714, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 1, 15, 0, 47, 15, 302714, tzinfo=<UTC>)}
+>>> User.objects.get(id=3)
+<User: User object (3)>
+>>> last_name="Pancakes"
+>>> save()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'save' is not defined
+>>> User.objects.get(id=3)
+<User: User object (3)>
+>>> last_name = "Pancakes"
+>>> save
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'save' is not defined
+>>> u = User.objects.get(id=3)
+>>> u.last_name = "Pancakes"
+>>> u.save()
+>>> u.last_name
+'Pancakes'
+>>> User.objects.get(id=2).delete
+<bound method Model.delete of <User: User object (2)>>
+>>> User.object.get(id=2)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'User' has no attribute 'object'
+>>> User.objects.get(id=2)
+<User: User object (2)>
+>>> delete_user.delete()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'delete_user' is not defined
+>>> u = User.objects.get(id=2)
+>>> u.delete()
+(1, {'main_app.User': 1})
+>>> User.objects.all()
+<QuerySet [<User: User object (1)>, <User: User object (3)>]>
+>>> User.objects.all().order_by("first_name")
+<QuerySet [<User: User object (1)>, <User: User object (3)>]>
+>>> User.objects.all().order_by("-first_name")
+<QuerySet [<User: User object (3)>, <User: User object (1)>]>

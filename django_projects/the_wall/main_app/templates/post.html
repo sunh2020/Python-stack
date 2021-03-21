@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+</head>
+<body>
+    <form action="/show_post" method="POST">
+        {% csrf_token %}
+        <table class="table">
+            <thead>
+                 <tbody>
+                    {% for user in main_app %}
+                    <tr>
+                        <td>{{user.fname}} {{user.lname}}</td> 
+                        {% for message in user.message.all %}
+                            {% for comment in message.comments.all %}
+
+                            <p>{{comment.comment}}</p>
+                            
+                        
+                        <p>Last Updated: {{post_id.updated_at}}</p>
+                        </td>    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </thead>
+        </table>
+    </form>
+</body>
+</html>

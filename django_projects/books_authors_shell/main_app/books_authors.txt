@@ -1,0 +1,89 @@
+py manage.py makemigrations
+py manage.py migrate
+py manage.py shell
+
+from main_app.models. import *
+
+Book.objects.create(title="C Sharp", desc="c sharp world")
+Book.objects.create(title="Java", desc="java world")
+Book.objects.create(title="Python", desc="python world")
+Book.objects.create(title="PHP", desc="php world")
+Book.objects.create(title="Ruby", desc="ruby world")
+
+Author.objects.create(first_name="Jane", last_name="Austen")
+Author.objects.create(first_name="Emily", last_name="Dickinson")
+Author.objects.create(first_name="Fyodor", last_name="Dostoevsky")
+Author.objects.create(first_name="William", last_name="Shakespeare")
+Author.objects.create(first_name="Lau", last_name="Tzu")
+
+exit()
+py manage.py makemigrations
+Select an option: 1
+>>> "notes"
+
+book1 = Book.objects.get(id=1)
+book2 = Book.objects.get(id=2)
+book3 = Book.objects.get(id=3)
+book4 = Book.objects.get(id=4)
+book5 = Book.objects.get(id=5)
+
+author1=Author.objects.get(id=1)
+author2=Author.objects.get(id=2)
+author3=Author.objects.get(id=3)
+author4=Author.objects.get(id=4)
+author5=Author.objects.get(id=5)
+
+>>> Book.objects.filter(id=1).update(title="C#")
+1
+Book.objects.get(id=1).title
+>>>'C#'
+>>> Author.objects.filter(id=4).update(first_name="Bill")
+1
+>>> Author.objects.get(id=4).first_name
+'Bill'
+
+>>> book1 = Book.objects.get(id=1)
+>>> author1.publishers.add(book1)
+>>> book2 = Book.objects.get(id=2)
+>>> author1.publishers.add(book2)
+
+book1 = Book.objects.get(id=1)
+author2.publishers.add(book1)
+author2.publishers.add(book2)
+book3 = Book.objects.get(id=3)
+author2.publishers.add(book3)
+
+book4 = Book.objects.get(id=4)
+author3.publishers.add(book1)
+author3.publishers.add(book2)
+author3.publishers.add(book3)
+author3.publishers.add(book4)
+
+book5 = Book.objects.get(id=5)
+author4.publishers.add(book1)
+author4.publishers.add(book2)
+author4.publishers.add(book3)
+author4.publishers.add(book4)
+author4.publishers.add(book5)
+
+
+Question: Retrieve all the authors for the 3rd book
+book3.authors.all()
+<QuerySet [<Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>]>
+
+Question: Remove the first author of the 3rd book
+book3.authors.remove(author1)
+book3.authors.all()
+<QuerySet [<Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>]>
+
+Question: Add the 5th author as one of the authors of the 2nd book
+author5=Author.objects.get(id=5)
+book2.authors.add(author5)
+book2.authors.all()
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>, <Author: Author object (5)>]>
+
+author3.publishers.all()
+<QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+
+book5.authors.all()
+<QuerySet [<Author: Author object (4)>]>

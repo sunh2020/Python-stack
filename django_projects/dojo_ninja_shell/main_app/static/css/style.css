@@ -1,0 +1,22 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    text-align: center;
+}
+
+ul {
+    text-align: center;
+}
+
+
+
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+button {
+    display: inline-block;
+}

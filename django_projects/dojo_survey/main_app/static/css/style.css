@@ -1,0 +1,29 @@
+h1 {
+    color: rgb(214, 87, 214);
+    display: block;
+}
+
+p {
+    text-align: left;
+    
+}
+
+body {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+
+}
+
+.option {
+    height: 100px;
+    width: 200px;
+}
+
+button {
+    background-color: rgb(236, 152, 152);
+    display: inline;
+       
+}

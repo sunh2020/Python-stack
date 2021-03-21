@@ -1,0 +1,21 @@
+h1 {
+    color:rgb(89, 89, 248);
+}
+
+table tr td {
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+}
+
+.color1 {
+    background-color: rgb(240, 123, 143);
+}
+
+.color2 {
+    background-color: rgb(53, 91, 126);
+}
+
+body {
+    background-color: rgb(245, 212, 245);
+}
